@@ -39,7 +39,7 @@ int main(int argc,char *argv[])
  	}
 	pthread_join(barbert,NULL);
  
-	exit(0);
+	return 0;
 }
  
 void* barber(void *arg)
@@ -78,11 +78,11 @@ void* customer(void *arg)
 	return;
 }
 
-cut_hair(){
+void cut_hair(){
 	printf("Barber cutting hair\n");
 	sem_wait(&cutting);
 }
-get_haircut(){
+void get_haircut(){
 	printf("Customer getting hair cut\n");
 	sleep(generate_random_num(3,5));
 	sem_post(&cutting);
